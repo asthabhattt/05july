@@ -11,7 +11,7 @@
           <form action="/upload/" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="mb-3">
-              <label for="exampleFormControlInput1" class="form-label">Book Name</label>
+              <label for="exampleFormControlInput1" class="form-label"><b>Book Name</b></label>
               <input
                 type="text"
                 class="form-control"
@@ -20,11 +20,11 @@
               />
             </div>
             <div class="mb-3">
-              <label for="author" class="form-label">Author Name</label>
+              <label for="author" class="form-label"><b>Author Name</b></label>
               <input type="text" class="form-control" name="author" placeholder="Joseph Murphy" />
             </div>
             <div class="mb-3">
-              <label for="exampleFormControlTextarea1" class="form-label">About Book</label>
+              <label for="exampleFormControlTextarea1" class="form-label"><b>Description</b></label>
               <textarea
                 class="form-control"
                 name="about"
@@ -33,31 +33,34 @@
               ></textarea>
             </div>
             <div class="mb-3">
-              <label for="formFile" class="form-label">Book Poster</label>
+              <label for="formFile" class="form-label"><b>Book Poster</b></label>
               <input class="form-control" type="file" name="poster" />
             </div>
             <div class="mb-3">
-              <label for="formFile" class="form-label">File (application/pdf)</label>
+              <label for="formFile" class="form-label"><b>Book Pdf</b></label>
               <input class="form-control" type="file" name="pdf" />
             </div>
             <div class="mb-3">
-              <label for="formFile" class="form-label">Book Category</label>
+              <label for="formFile" class="form-label"><b>Book Category</b></label>
               <select class="form-select" name="category" aria-label="Default select example">
                 <option selected>Select Category</option>
-                <option value="spiritual">Spiritual</option>
+                <option value="most reviewed books">Most Reviewed Books</option>
+                <option value="biography and autobiography">Biography and Autobiography</option>
                 <option value="horror">Horror</option>
-                <option value="others">Others</option>
+                <option value="spiritual">Spiritual</option>
+                <option value="fiction">Fictionoption>
+                
               </select>
             </div>
             <div class="form-check form-switch">
-              <label class="form-check-label" for="flexSwitchCheckDefault"
-                >Is only for paid members?</label
-              >
+              <label class="form-check-label" for="flexSwitchCheckDefault">
+              <b>Is only for paid members? &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </b> </label>
+              
               <input class="form-check-input" type="checkbox" name="isForMembers" />
             </div>
 
             <div style="float: right">
-              <button type="submit" class="btn btn-warning">Upload Book</button>
+              <button type="submit" class="btn btn-primary">Upload Book</button>
             </div>
           </form>
         </div>
@@ -65,4 +68,4 @@
     </div>
     </div>
     
-{% endblock body %}   
+{% endblock body %}
