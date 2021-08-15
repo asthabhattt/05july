@@ -4,6 +4,17 @@ from home.models import Contact, Signup
 from django.contrib import messages
 
 
+import os
+from mywork.settings import BASE_DIR
+from django.contrib import admin
+from django.http.response import HttpResponse, HttpResponseRedirect, JsonResponse
+from django.urls import path
+from django.shortcuts import render
+import firebase_admin
+from firebase_admin import credentials
+from mywork.fire import isValidToken
+
+
 
 
 
@@ -132,3 +143,37 @@ def getBooks():
 
 def chunkIt(my_list, n):
     return [my_list[i * n:(i + 1) * n] for i in range((len(my_list) + n - 1) // n )] 
+
+
+
+def login(request):
+    return render(request,"login.html")
+
+def create(request):
+    return render(request,"create.html")
+
+def verify(request):
+    return render(request,"verify.html")
+
+def log(request):
+    if(isLoggedIn(request)==False):
+        return HttpResponseRedirect("/login")
+
+    return HttpResponse("hi there,you are now logged in")
+
+
+def create_session(request):
+    user=isValidToken(request)
+    if(user):
+        request.session["user"]=user
+        return JsonResponse({"success":True})
+    else:
+        return JsonResponse({"success":False})
+
+
+def isLoggedIn(request):
+    try:
+        request.session['user']
+        return True
+    except:
+        return False

@@ -15,7 +15,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from home.views import upload,home
+from home.views import upload,home,verify,login,create,create_session,log
 
 admin.site.site_header = "My Project Admin"
 admin.site.site_title = "My Project Admin Portal"
@@ -25,5 +25,10 @@ urlpatterns = [
     path('admin/', home),
     path('',include('home.urls')),
     path('upload/', upload ),
+    path('verify/', verify),
+    path('create/', create),
+    path('login/', login),
+    path('log/', log),
+    path('create_session/',create_session)
 
 ]
