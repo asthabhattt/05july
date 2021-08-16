@@ -1,14 +1,14 @@
 var firebaseConfig = {
-    apiKey: "AIzaSyAjc-Ekb_17oyxjHc4pR2s-CVK6Ncz-dYA",
-    authDomain: "abcsdd-e95cf.firebaseapp.com",
-    projectId: "abcsdd-e95cf",
-    storageBucket: "abcsdd-e95cf.appspot.com",
-    messagingSenderId: "47387944972",
-    appId: "1:47387944972:web:23fc4864f225d6d4b2e629",
-    measurementId: "G-F7D0F1X31R"
+    apiKey: "AIzaSyCH75YJN930f6DLae2J1N6v3vX7O8gRkLE",
+    authDomain: "pick-a-book-b5d55.firebaseapp.com",
+    projectId: "pick-a-book-b5d55",
+    storageBucket: "pick-a-book-b5d55.appspot.com",
+    messagingSenderId: "246369971674",
+    appId: "1:246369971674:web:c2506ee0777782c09924e3",
+    measurementId: "G-QRE5Q2JW7B"
   };
-firebase.initializeApp(firebaseConfig);
-firebase.analytics();
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
 const Toast = Swal.mixin({
     toast: true,
     position: 'top-end',
