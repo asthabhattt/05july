@@ -1,11 +1,11 @@
 var firebaseConfig = {
-    apiKey: "AIzaSyB-qeiQmev9jSKg_FxAh5Tb9a1GmjkOlM4",
-    authDomain: "e-book-c8398.firebaseapp.com",
-    projectId: "e-book-c8398",
-    storageBucket: "e-book-c8398.appspot.com",
-    messagingSenderId: "655062906586",
-    appId: "1:655062906586:web:0a419c6b5267847224d7e3",
-    measurementId: "G-0JNZPCSTLT"
+    apiKey: "AIzaSyAjc-Ekb_17oyxjHc4pR2s-CVK6Ncz-dYA",
+    authDomain: "abcsdd-e95cf.firebaseapp.com",
+    projectId: "abcsdd-e95cf",
+    storageBucket: "abcsdd-e95cf.appspot.com",
+    messagingSenderId: "47387944972",
+    appId: "1:47387944972:web:23fc4864f225d6d4b2e629",
+    measurementId: "G-F7D0F1X31R"
   };
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
@@ -29,11 +29,14 @@ const redirect_to = "/home/"
 
 function onAppInit() {
     firebase.auth().onAuthStateChanged((user) => {
+        if(!user) return
         _user = user;
-        if (!user.emailVerified && window.location.pathname != '/verify/') {
+        const path=window.location.pathname;
+        if (!user.emailVerified && path != '/verify/') {
             window.open("/verify/", "_self")
         }
-        if (user.emailVerified) {
+
+        if (user.emailVerified && ["/login/","/create/","/verify/","/login","/create","/verify"].includes(path)) {
             createSession()
         }
         document.getElementById("span_email").innerText = user.email
