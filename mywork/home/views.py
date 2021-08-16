@@ -136,7 +136,7 @@ def getBooks():
             temp.append(book)
     
     if(len(temp)>0):
-        result.append({"tabName":temp[0].category.title() ,"books":chunkIt(temp,3)})
+        result.append({"tabName":temp[0].category.title() ,"books":chunkIt(temp,6)})
     print(result)
     return result
 
