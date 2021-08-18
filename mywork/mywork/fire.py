@@ -7,7 +7,7 @@ from firebase_admin import credentials
 from firebase_admin import auth
 
 script_dir = os.path.dirname(__file__)
-file_path = os.path.join(script_dir, 'e-book-c8398-firebase-adminsdk-5oyfo-32de88f391.json')
+file_path = os.path.join(script_dir, 'pick-a-book-b5d55-firebase-adminsdk-y2fri-39b922481e.json')
 cred= credentials.Certificate(file_path)
 App=firebase_admin.initialize_app(cred)
 

@@ -177,3 +177,29 @@ def isLoggedIn(request):
         return True
     except:
         return False
+
+
+
+
+
+
+
+
+
+
+
+
+
+def search(request):
+    query=request.GET['query']
+    if len(query)>78:
+        allPosts=Books.objects.none()
+    else:
+        allPostsname= Books.objects.filter(name__icontains=query)
+        allPostsAuthor= Books.objects.filter(author__icontains=query)
+        allPostsabout =Books.objects.filter(about__icontains=query)
+        allPosts=  allPostsname.union(allPostsabout, allPostsAuthor)
+    if allPosts.count()==0:
+        messages.warning(request, "No search results found. Please refine your query.")
+    params={'allPosts': allPosts, 'query': query}
+    return render(request, 'search.html', params)
