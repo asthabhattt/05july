@@ -185,13 +185,14 @@ def isLoggedIn(request):
 
 
 
-
+ 
 
 
 
 
 def search(request):
-    query=request.GET['query']
+    if request.method=='GET':
+     query=request.GET['query']
     if len(query)>78:
         allPosts=Books.objects.none()
     else:
